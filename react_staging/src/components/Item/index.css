@@ -7,6 +7,10 @@ li {
     border-bottom: 1px solid #ddd;
 }
 
+li:hover {
+    background: red;
+}
+
 li label {
     float: left;
     cursor: pointer;
