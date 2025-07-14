@@ -13,12 +13,12 @@ class List extends Component {
 
 
   render() {
-    const {todos, updateTodo} = this.props
+    const {todos, updateTodo, deleteTodo} = this.props
     return (
       <div className="todo-main">
         {
           todos.map((todo, index) => {
-            return <Item key={todo.id} {...todo} index={index} updateTodo={updateTodo}/>
+            return <Item key={todo.id} {...todo} index={index} updateTodo={updateTodo} deleteTodo={deleteTodo}/>
           })
         }
       </div>
