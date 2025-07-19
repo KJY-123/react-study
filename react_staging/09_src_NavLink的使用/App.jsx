@@ -24,9 +24,6 @@ class App extends Component {
               {/* 在React中靠路由链接实现切换组件 */}
               <NavLink activeClassName="atguigu" className="list-group-item" to="/about">About</NavLink>
               <NavLink activeClassName="atguigu" className="list-group-item" to="/home">Home</NavLink>
-              <MyNavLink>
-                
-              </MyNavLink>
             </div>
           </div>
           <div className="col-xs-6">
