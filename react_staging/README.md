@@ -17,7 +17,7 @@
         const {a:{b}} = obj; // 连续解构赋值
         const {a:{b:value}} = obj // 连续解构赋值+重命名
     3.消息订阅与发布机制
-        1.先订阅，再发布（理解：有一种隔空对话的感觉）
+        1.先订阅，再发布（理解：有一种隔空对话的感觉）~
         2.适用于任何组件间通信
         3.要在组件的componentWillUnmount中取消订阅
     4.fetch发送请求（关注分离的设计思想）
@@ -76,3 +76,8 @@
 ## 六、Switch的使用
     1.通常情况下，path和component是一一对应的关系
     2.Switch可以提高路由匹配效率（单一匹配）
+    
+## 七、解决多路径刷新页面样式丢失的问题
+    1.public/index.html中 引入样式时不写 ./ 写 / （常用）
+    2.public/index.html中 引入样式时不写 ./ 写 %PUBLIC_URL% （仅适用于 create-react-app 创建的）（常用）
+    3.使用HashRouter
