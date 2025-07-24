@@ -64,3 +64,15 @@
     (3).重点：Person的reducer和Count的Reducer要使用combineReducer进行合并，
         合并后的总状态是一个对象！！！
     (4).交给store的是总reducer，最后注意在组件取出状态时记得"取到位"
+
+## 7.求和案例_react-redux开发者工具的使用
+    (1).yarn add redux-devtools-extension
+    (2).store中进行配置
+        import {composeWithDevTools} from 'redux-devtools-extension'
+        const store = createStore(allReducer, composeWithDevTools(applyMiddleware(thunk)))
+
+## 8.求和案例_react-redux最终版
+    (1).所有变量名字要规范，尽量触发对象的简写方式
+    (2).reducers文件夹，编写index.js专门用于汇总并暴露所有的reducer
+    (3).npm i serve -g // 全局安装serve
+        serve -s build // 本地使用服务器部署打包后文件

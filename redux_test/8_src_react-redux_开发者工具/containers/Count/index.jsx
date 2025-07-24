@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 // 引入action
 import {
-  increment,
-  decrement,
-  incrementAsync
+  createIncrementAction,
+  createDecrementAction,
+  createIncrementAsyncAction
 } from '../../redux/actions/count'
 
 // 引入connect用于连接UI组件和redux
@@ -17,32 +17,32 @@ class Count extends Component {
   //加法
   increment = () =>{
     const {value} = this.selectNumber
-    this.props.increment(value*1)
+    this.props.jia(value*1)
   }
 
   // 减法
   decrement = () =>{
     const {value} = this.selectNumber
-    this.props.decrement(value*1)
+    this.props.jian(value*1)
   }
 
   // 奇数再加
   incrementIfOdd = () =>{
     const {value} = this.selectNumber
     if (this.props.count % 2 !== 0) {
-      this.props.increment(value*1)
+      this.props.jia(value*1)
     }
   }
 
   incrementAsync = () =>{
     const {value} = this.selectNumber
-    this.props.incrementAsync(value*1, 500)
+    this.props.jiaAsync(value*1, 500)
   }
 
   render() {
     return (
       <div>
-        <h2>我是Count组件，下方组件总人数为:{this.props.personCount}</h2>
+        <h2>我是Count组件，下方组件总人数为:{this.props.renshu}</h2>
         <h4>当前求和为：{this.props.count}</h4>
         <select ref={c => this.selectNumber = c}>
           <option value="1">1</option>
@@ -62,17 +62,21 @@ class Count extends Component {
 export default connect(
   // 映射状态
   state => ({
-    count: state.count,
-    personCount: state.persons.length
+    count: state.he,
+    renshu: state.rens.length
   }),
 
   // mapDispatchToProps的一般写法
   // dispatch => ({
-  //   increment: number => dispatch(increment(number)), // 通知redux执行加法
-  //   decrement: number => dispatch(decrement(number)),
-  //   incrementAsync: (number, time) => dispatch(incrementAsync(number, time))
+  //   jia: number => dispatch(createIncrementAction(number)), // 通知redux执行加法
+  //   jian: number => dispatch(createDecrementAction(number)),
+  //   jiaAsync: (number, time) => dispatch(createIncrementAsyncAction(number, time))
   // })
 
   // mapDispatchToProps的简写
-  {increment, decrement, incrementAsync }
+  {
+    jia: createIncrementAction,
+    jian: createDecrementAction,
+    jiaAsync: createIncrementAsyncAction,
+  }
 )(Count)
